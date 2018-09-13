@@ -31,6 +31,16 @@ describe TournamentRequest do
     end
   end
 
+  describe "#api_base_path" do
+    it "returns tournament api url if use_stub_api is not set" do
+      expect(subject.api_base_path).to include "/lol/tournament/"
+    end
+    it "returns tournament-stub api url if use_stub_api is not set" do
+      subject.use_stub_api = true
+      expect(subject.api_base_path).to include "/lol/tournament-stub/"
+    end
+  end
+
   pending '#create_codes'
   pending '#update_code'
 end

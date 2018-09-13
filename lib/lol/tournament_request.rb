@@ -2,6 +2,8 @@ module Lol
   class TournamentRequest < Request
     # @!visibility private
     def api_base_path
+      # Guard clause for stub api
+      return "/lol/tournament-stub/#{self.class.api_version}" if self.use_stub_api
       "/lol/tournament/#{self.class.api_version}"
     end
 

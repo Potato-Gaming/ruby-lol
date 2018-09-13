@@ -80,6 +80,8 @@ module Lol
     # @return [TournamentProviderRequest]
     def tournament
       @tournament ||= TournamentRequest.new(api_key, region, cache_store, rate_limiter)
+      @tournament.use_stub_api = @use_stub_api
+      @tournament
     end
 
     # Initializes a Lol::Client
@@ -94,6 +96,7 @@ module Lol
     def initialize api_key, options = {}
       @api_key = api_key
       @region = options.delete(:region) || "euw"
+      @use_stub_api = options.delete(:use_stub_api) || false
       set_up_cache(options.delete(:redis), options.delete(:ttl))
       set_up_rate_limiter(options.delete(:rate_limit_requests), options.delete(:rate_limit_seconds))
     end

@@ -28,6 +28,10 @@ module Lol
     # @return [Object] the rate limiter, if one exists (else nil)
     attr_reader :rate_limiter
 
+    # @!attribute [rw] use_stub_api
+    # @return [String] use_stub_api
+    attr_accessor :use_stub_api
+
     # Returns the supported API Version.
     # @return [String] v3
     def self.api_version
@@ -56,7 +60,7 @@ module Lol
     # @param cache_store [Hash]
     # @option cache_store [Redis] :redis Redis instance to use
     # @option cache_store [Boolean] :cached should the request be cached
-    # @option cacche_store [Integer] :ttl ttl for cache keys
+    # @option cache_store [Integer] :ttl ttl for cache keys
     # @return [Request]
     def initialize api_key, region, cache_store = {}, rate_limiter = nil
       @cache_store  = cache_store

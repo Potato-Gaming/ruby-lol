@@ -37,6 +37,9 @@ client = Lol::Client.new "my_api_key", region: "euw", redis: "redis://localhost:
 # You can specify your rate limits so that the library will throttle requests to avoid errors
 client = Lol::Client.new "new_api_key", region: "euw", rate_limit_requests: 1, rate_limit_seconds: 10
 
+# With the use_stub_api parameter you can activate to use the tournament-stub api. By default the tournament api will be used
+client = Lol::Client.new "new_api_key", region: "euw", use_stub_api: true
+
 # Available Requests
 client.champion
 # => Lol::ChampionRequest
