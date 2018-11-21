@@ -1,10 +1,12 @@
-# ruby-lol
+ruby-lol
+ =====
+
 [![Gem Version](https://badge.fury.io/rb/ruby-lol.png)](http://badge.fury.io/rb/ruby-lol) [![Coverage Status](https://coveralls.io/repos/mikamai/ruby-lol/badge.png)](https://coveralls.io/r/mikamai/ruby-lol) [![Build Status](https://travis-ci.org/mikamai/ruby-lol.png?branch=master)](https://travis-ci.org/mikamai/ruby-lol) [![Dependency Status](https://gemnasium.com/mikamai/ruby-lol.png)](https://gemnasium.com/mikamai/ruby-lol) [![Inline docs](http://inch-ci.org/github/mikamai/ruby-lol.png?branch=master)](http://inch-ci.org/github/mikamai/ruby-lol)
 
 
 ruby-lol is a wrapper to the [Riot Games API](https://developer.riotgames.com).
 
-## Installation
+# Installation
 
 Add this line to your application's Gemfile:
 
@@ -20,10 +22,11 @@ Or install it yourself as:
 
     $ gem install ruby-lol
 
-## Usage
+# Usage
 
-[ Outdated, anyone who wants to contribute to this please do it :) ]
+[ WIP ]
 
+### Initialize the client
 ```ruby
 require 'lol'
 
@@ -39,52 +42,71 @@ client = Lol::Client.new "new_api_key", region: "euw", rate_limit_requests: 1, r
 
 # With the use_stub_api parameter you can activate to use the tournament-stub api. By default the tournament api will be used
 client = Lol::Client.new "new_api_key", region: "euw", use_stub_api: true
-
-# Available Requests
-client.champion
-# => Lol::ChampionRequest
-client.game
-# => Lol::GameRequest
-client.league
-# => Lol::LeagueRequest
-client.stats
-# => Lol::StatsRequest
-client.summoner
-# => Lol::SummonerRequest
-client.team
-# => Lol::TeamRequest
-
-# Available methods for each request type
-client.champion.get
-# => Lol::Champion
-
-client.game.recent(summoner_id)
-# => Lol::Game
-
-client.league.get(summoner_id)
-# => Lol::League
-
-client.stats.summary(summoner_id)
-# => Lol::SummaryStats
-client.stats.ranked(summoner_id)
-# => Lol::RankedStats
-
-client.summoner.masteries(summoner_id)
-# => [Lol::Masterypage]
-client.summoner.runes(summoner_id)
-# => [Lol::Runepage]
-client.summoner.by_name(name)
-# => Lol::Summoner
-client.summoner.get(summoner_id)
-# => Lol::Summoner
-client.summoner.name(summoner_ids)
-# => [Hash]
-
-client.team.get(summoner_id)
-# => Array
 ```
 
-# Making Static Requests
+## RIOT API Endpoints
+
+#### [CHAMPION-MASTERY-V3](https://developer.riotgames.com/api-methods/#champion-mastery-v3)
+```ruby
+client.champion_mastery
+# => Lol::ChampionMasteryRequest
+```
+#### [CHAMPION-V3](https://developer.riotgames.com/api-methods/#champion-v3)
+```ruby
+client.champion
+# => Lol::ChampionRequest
+```
+
+#### [LEAGUE-V3](https://developer.riotgames.com/api-methods/#league-v3)
+```ruby
+client.league
+# => Lol::LeagueRequest
+```
+
+#### [LOL-STATUS-V3](https://developer.riotgames.com/api-methods/#lol-status-v3)
+```ruby
+client.lol_status
+# => Lol::LolStatusRequest
+```
+
+#### [MATCH-V3](https://developer.riotgames.com/api-methods/#match-v3)
+```ruby
+client.match
+# => Lol::MatchRequest
+```
+#### [SPECTATOR-V3](https://developer.riotgames.com/api-methods/#spectator-v3)
+```ruby
+client.spectator
+# => Lol::SpectatorRequest
+```
+
+#### [SUMMONER-V3](https://developer.riotgames.com/api-methods/#summoner-v3)
+```ruby
+client.summoner
+# => Lol::SummonerRequest
+
+# Get Summoner by Name
+client.summoner.find_by_name("Faker")
+
+# Get Summoner by Id
+client.summoner.find("123456789")
+
+# Get Summoner by AccountId
+client.summoner.find_by_account_id("123456789")
+```
+
+#### [TOURNAMENT-STUB-V3](https://developer.riotgames.com/api-methods/#tournament-stub-v3)
+
+Used if you activate ``` use_stub_api: true ``` while intializing the client. Usage like Tournament-API.
+
+#### [TOURNAMENT-V3](https://developer.riotgames.com/api-methods/#tournament-v3)
+```ruby
+client.tournament
+# => Lol::TournamentRequest
+```
+
+
+## Making Static Requests
 The Riot API has a [section](http://developer.riotgames.com/api/methods#!/378) carved out for static-data. These requests don't count against your rate limit. The mechanism for using them is similar to the standard requests above.
 
 Each static endpoint has two possible requests: `get` and `get(id)`. `get` returns an array of OpenStructs representing the data from Riot's API, and `get(id)` returns an OpenStruct with a single record. Here are some examples:
