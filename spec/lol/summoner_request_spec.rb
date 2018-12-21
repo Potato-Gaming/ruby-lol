@@ -19,8 +19,16 @@ describe SummonerRequest do
 
   describe "#find_by_puuid" do
     it "returns a DynamicModel" do
-      stub_request subject, "summoner-by-puuid", "summoners/by-puuid/48wR9dQbrgXhMZrR8Hoeg4m-fOE5TU7vl3MDdkuTut4-gpiLJ5626F4W6IXvZPZ86fLTs5ZOSwS5DQ"
-      expect(subject.find_by_puuid "48wR9dQbrgXhMZrR8Hoeg4m-fOE5TU7vl3MDdkuTut4-gpiLJ5626F4W6IXvZPZ86fLTs5ZOSwS5DQ").to be_a DynamicModel
+      stub_request(
+        subject,
+        "summoner-by-puuid",
+        "summoners/by-puuid/48wR9dQbrgXhMZrR8Hoeg4m-fOE5TU7vl3MDdkuTut4-gpiLJ5626F4W6IXvZPZ86fLTs5ZOSwS5DQ"
+      )
+      expect(
+        subject.find_by_puuid(
+          "48wR9dQbrgXhMZrR8Hoeg4m-fOE5TU7vl3MDdkuTut4-gpiLJ5626F4W6IXvZPZ86fLTs5ZOSwS5DQ"
+        )
+      ).to be_a DynamicModel
     end
   end
 
