@@ -36,8 +36,8 @@ describe LeagueRequest do
 
   describe '#summoner_leagues' do
     it 'returns an array of LeagueList objects' do
-      stub_request subject, 'league-summoner', 'leagues/by-summoner/1'
-      result = subject.summoner_leagues summoner_id: 1
+      stub_request subject, 'league-summoner', "leagues/by-summoner/#{encrypted_summoner_id}"
+      result = subject.summoner_leagues summoner_id: encrypted_summoner_id
       expect(result).to be_a Array
       expect(result.map(&:class).uniq).to eq [DynamicModel]
     end
@@ -45,8 +45,8 @@ describe LeagueRequest do
 
   describe '#summoner_positions' do
     it 'returns an array of DynamicModel objects' do
-      stub_request subject, 'league-positions', 'positions/by-summoner/1'
-      result = subject.summoner_positions summoner_id: 1
+      stub_request subject, 'league-positions', "positions/by-summoner/#{encrypted_summoner_id}"
+      result = subject.summoner_positions summoner_id: encrypted_summoner_id
       expect(result).to be_a Array
       expect(result.map(&:class).uniq).to eq [DynamicModel]
     end

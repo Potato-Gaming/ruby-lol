@@ -1,0 +1,38 @@
+[
+  {
+    "leagueId": "95e5c230-b67d-11e8-993c-c81f66db01ef",
+    "leagueName": "Renekton's Zealots",
+    "tier": "PLATINUM",
+    "queueType": "RANKED_SOLO_5x5",
+    "rank": "IV",
+    "summonerId": "ABHN9fr3fI3SPCvaULnhnSKUF4gwJz5CgJiwz1oGl1u-nYU",
+    "summonerName": "Foo",
+    "leaguePoints": 5,
+    "wins": 68,
+    "losses": 56
+  },
+  {
+    "leagueId": "347cfad0-0454-11e8-8457-c81f66dd2a8f",
+    "leagueName": "Rumble's Scouts",
+    "tier": "GOLD",
+    "queueType": "RANKED_FLEX_TT",
+    "rank": "III",
+    "summonerId": "ABHN9fr3fI3SPCvaULnhnSKUF4gwJz5CgJiwz1oGl1u-nYU",
+    "summonerName": "Foo",
+    "leaguePoints": 3,
+    "wins": 5,
+    "losses": 13
+  },
+  {
+    "leagueId": "f43382a0-6065-11e8-a1b0-c81f66dd2a8f",
+    "leagueName": "Orianna's Gadgeteers",
+    "tier": "GOLD",
+    "queueType": "RANKED_FLEX_SR",
+    "rank": "IV",
+    "summonerId": "ABHN9fr3fI3SPCvaULnhnSKUF4gwJz5CgJiwz1oGl1u-nYU",
+    "summonerName": "Foo",
+    "leaguePoints": 0,
+    "wins": 54,
+    "losses": 60
+  }
+]
