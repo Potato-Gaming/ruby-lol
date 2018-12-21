@@ -8,8 +8,8 @@ module Lol
       "/lol/summoner/#{self.class.api_version}"
     end
 
-    # Get a summoner by summoner ID.
-    # @param [Integer] id Summoner ID
+    # Get a summoner by encrypted summoner ID.
+    # @param [Integer] encrypted Summoner ID
     # @return [DynamicModel] Summoner representation
     def find id
       DynamicModel.new perform_request api_url "summoners/#{id}"
@@ -23,8 +23,8 @@ module Lol
       DynamicModel.new perform_request api_url "summoners/by-name/#{name}"
     end
 
-    # Get a summoner by account ID.
-    # @param [Integer] account_id Account ID
+    # Get a summoner by encrypted account ID.
+    # @param [Integer] encrypted account_id Account ID
     # @return [DynamicModel] Summoner representation
     def find_by_account_id account_id
       DynamicModel.new perform_request api_url "summoners/by-account/#{account_id}"
