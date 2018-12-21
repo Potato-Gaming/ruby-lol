@@ -1,11 +1,11 @@
 module Lol
   # Bindings for the Champion API.
   #
-  # See: https://developer.riotgames.com/api-methods/#champion-v3
+  # See: https://developer.riotgames.com/api-methods/#champion-v4
   class ChampionRequest < Request
     # Retrieve all champions
     #
-    # See: https://developer.riotgames.com/api-methods/#champion-v3/GET_getChampions
+    # See: https://developer.riotgames.com/api-methods/#champion-v4/GET_getChampions
     # @param free_to_play [Boolean] filter param to retrieve only free to play champions
     # @return [Array<Lol::DynamicModel>] an array of champions
     def all free_to_play: false

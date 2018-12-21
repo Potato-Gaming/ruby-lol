@@ -29,5 +29,12 @@ module Lol
     def find_by_account_id account_id
       DynamicModel.new perform_request api_url "summoners/by-account/#{account_id}"
     end
+
+    # Get a summoner by PUUID
+    # @params [String] Encrypted PUUID
+    # @return [DynamicModel] Summoner representation
+    def find_by_puuid encrypted_puuid
+      DynamicModel.new perform_request api_url "summoners/by-puuid/#{encrypted_puuid}"
+    end
   end
 end
