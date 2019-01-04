@@ -1,7 +1,7 @@
 module Lol
   # Bindings for the Champion API.
   #
-  # See: https://developer.riotgames.com/api-methods/#champion-v4
+  # See: https://developer.riotgames.com/api-methods/#champion-v3
   class ChampionRequest < Request
     # This endpoint only exists in api v3
     def self.api_version
