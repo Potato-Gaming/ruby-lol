@@ -29,7 +29,7 @@ module Lol
 
     # Get a champion mastery by player ID and champion ID
     #
-    # See: https://developer.riotgames.com/api-methods/#champion-mastery-v4/GET_getDynamicModel
+    # See: https://developer.riotgames.com/api-methods/#champion-mastery-v4/GET_getChampionMastery
     # @param [Integer] summoner_id Summoner ID associated with the player
     # @return [Lol::DynamicModel] Champion Mastery
     def find champion_id, summoner_id:
