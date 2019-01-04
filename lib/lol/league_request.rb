@@ -1,7 +1,7 @@
 module Lol
   # Bindings for the League API.
   #
-  # See: https://developer.riotgames.com/api-methods/#league-v3
+  # See: https://developer.riotgames.com/api-methods/#league-v4
   class LeagueRequest < Request
     # @!visibility private
     def api_base_path
@@ -9,6 +9,7 @@ module Lol
     end
 
     # Get the challenger league for a given queue
+    # See: https://developer.riotgames.com/api-methods/#league-v4/GET_getChallengerLeague
     # @param [String] queue Queue identifier. See the list of game constants (developer.riotgames.com/game-constants.html) for the available queue identifiers
     # @return [DynamicModel] Challenger league
     def find_challenger queue: 'RANKED_SOLO_5x5'
@@ -16,6 +17,7 @@ module Lol
     end
 
     # Get the master league for a given queue
+    # See: https://developer.riotgames.com/api-methods/#league-v4/GET_getMasterLeague
     # @param [String] queue Queue identifier. See the list of game constants (developer.riotgames.com/game-constants.html) for the available queue identifiers
     # @return [DynamicModel] lMaster league
     def find_master queue: 'RANKED_SOLO_5x5'
@@ -31,7 +33,8 @@ module Lol
     end
 
     # Get league positions in all queues for a given summoner ID
-    # @param [Integer] summoner_id Summoner ID associated with the player
+    # See: https://developer.riotgames.com/api-methods/#league-v4/GET_getAllLeaguePositionsForSummoner
+    # @param [String] summoner_id Ecrypted Summoner ID associated with the player
     # @return [Array<DynamicModel>] list of league positions
     def summoner_positions summoner_id:
       result = perform_request api_url "positions/by-summoner/#{summoner_id}"
