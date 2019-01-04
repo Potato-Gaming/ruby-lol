@@ -1,7 +1,7 @@
 module Lol
-  # Bindings for the Match API.
+  # Bindings for the Spectator API.
   #
-  # See: https://developer.riotgames.com/api-methods/#match-v3
+  # See: https://developer.riotgames.com/api-methods/#spectator-v4
   class SpectatorRequest < Request
     # @!visibility private
     def api_base_path
