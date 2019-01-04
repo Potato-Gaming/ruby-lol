@@ -3,6 +3,11 @@ module Lol
   #
   # See: https://developer.riotgames.com/api-methods/#champion-v4
   class ChampionRequest < Request
+    # This endpoint only exists in api v3
+    def self.api_version
+      "v3"
+    end
+
     # Retrieve all champions
     #
     # See: https://developer.riotgames.com/api-methods/#champion-v4/GET_getChampions
