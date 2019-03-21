@@ -253,6 +253,8 @@ client.static.champions.get(champData: 'lore')
 5. Create new Pull Request
 
 ## Changelog
+ - 2.0.1 Updated Gems
+ - 2.0.0 Updated to RIOT API Version 4
  - 1.3.1 Updated outdated docs
  - 1.3.0 Added feature to use the tournament-stub api
  - 0.9.14 Fixed a caching bug
