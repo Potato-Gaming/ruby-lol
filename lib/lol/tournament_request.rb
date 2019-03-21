@@ -41,7 +41,7 @@ module Lol
     # @param [Integer] team_size The team size of the game. Valid values are 1-5.
     # @param [String] pick_type The pick type of the game. Valid values are BLIND_PICK, DRAFT_MODE, ALL_RANDOM, TOURNAMENT_DRAFT.
     # @param [String] map_type The map type of the game. Valid values are SUMMONERS_RIFT, TWISTED_TREELINE, CRYSTAL_SCAR, and HOWLING_ABYSS.
-    # @param [Array<Integer>] allowed_participants List of participants in order to validate the players eligible to join the lobby.
+    # @param [Array<String>] allowed_participants List of encrypted summoner ids in order to validate the players eligible to join the lobby.
     # @param [String] metadata Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.
     # @return [Array<String>] generated tournament codes
     def create_codes tournament_id:, count: nil, allowed_participants: nil,
@@ -64,7 +64,7 @@ module Lol
 
     # Update the pick type, map, spectator type, or allowed summoners for a code.
     # @param [String] tournament_code The tournament code to update
-    # @param [Array<Integer>] allowed_participants List of participants in order to validate the players eligible to join the lobby.
+    # @param [Array<String>] allowed_participants List of encrypted summoner ids in order to validate the players eligible to join the lobby.
     # @param [String] map_type The map type of the game. Valid values are SUMMONERS_RIFT, TWISTED_TREELINE, CRYSTAL_SCAR, and HOWLING_ABYSS.
     # @param [String] pick_type The pick type of the game. Valid values are BLIND_PICK, DRAFT_MODE, ALL_RANDOM, TOURNAMENT_DRAFT.
     # @param [String] spectator_type The spectator type of the game. Valid values are NONE, LOBBYONLY, ALL.

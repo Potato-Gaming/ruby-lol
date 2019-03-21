@@ -1,7 +1,7 @@
 module Lol
   # Bindings for the Match API.
   #
-  # See: https://developer.riotgames.com/api-methods/#match-v3
+  # See: https://developer.riotgames.com/api-methods/#match-v4
   class MatchRequest < Request
     # @!visibility private
     def api_base_path
@@ -39,8 +39,8 @@ module Lol
       DynamicModel.new perform_request api_url "matches/#{match_id}/by-tournament-code/#{tournament_code}"
     end
 
-    # Get matchlist for ranked games played on given account ID and platform ID and filtered using given filter parameters, if any.
-    # @param [Integer] account_id Account ID
+    # Get matchlist for ranked games played on given encrypted account ID and platform ID and filtered using given filter parameters, if any.
+    # @param [String] account_id Encrypted account ID
     # @param [Hash] options the options to pass to the call
     # @option options [Array<Integer>] queue Set of queue IDs for which to filtering matchlist.
     # @option options [Integer] beginTime The begin time to use for filtering matchlist specified as epoch milliseconds.
@@ -55,7 +55,7 @@ module Lol
     end
 
     # Get matchlist for last 20 matches played on given account ID and platform ID.
-    # @param [Integer] account_id Account ID
+    # @param [String] account_id Encrypted account ID
     # @return [DynamicModel] MatchList represantion
     def recent account_id:
       DynamicModel.new perform_request api_url "matchlists/by-account/#{account_id}/recent"

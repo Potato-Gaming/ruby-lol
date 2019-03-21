@@ -3,9 +3,14 @@ module Lol
   #
   # See: https://developer.riotgames.com/api-methods/#champion-v3
   class ChampionRequest < Request
+    # This endpoint only exists in api v3
+    def self.api_version
+      "v3"
+    end
+
     # Retrieve all champions
     #
-    # See: https://developer.riotgames.com/api-methods/#champion-v3/GET_getChampions
+    # See: https://developer.riotgames.com/api-methods/#champion-v4/GET_getChampions
     # @param free_to_play [Boolean] filter param to retrieve only free to play champions
     # @return [Array<Lol::DynamicModel>] an array of champions
     def all free_to_play: false

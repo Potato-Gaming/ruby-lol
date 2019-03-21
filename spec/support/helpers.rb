@@ -1,4 +1,8 @@
 module Helpers
+  def encrypted_summoner_id
+    "ABHN9fr3fI3SPCvaULnhnSKUF4gwJz5CgJiwz1oGl1u-nYU"
+  end
+
   def underscore(s)
     s.to_s.scan(/[A-Z][a-z]*/).join("_").downcase
   end

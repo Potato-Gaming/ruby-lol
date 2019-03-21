@@ -33,9 +33,9 @@ module Lol
     attr_accessor :use_stub_api
 
     # Returns the supported API Version.
-    # @return [String] v3
+    # @return [String] v4
     def self.api_version
-      "v3"
+      "v4"
     end
 
     def self.platforms
