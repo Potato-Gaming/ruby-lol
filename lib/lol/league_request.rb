@@ -32,12 +32,20 @@ module Lol
       result.map { |c| DynamicModel.new c }
     end
 
-    # Get league positions in all queues for a given summoner ID
+    # Get league entries in all queues for a given summoner ID
     # See: https://developer.riotgames.com/api-methods/#league-v4/GET_getAllLeaguePositionsForSummoner
     # @param [String] summoner_id Ecrypted Summoner ID associated with the player
     # @return [Array<DynamicModel>] list of league positions
     def summoner_positions summoner_id:
-      result = perform_request api_url "positions/by-summoner/#{summoner_id}"
+      summoner_entries(summoner_id: summoner_id)
+    end
+    
+    # Get league entries in all queues for a given summoner ID
+    # See: https://developer.riotgames.com/api-methods/#league-v4/GET_getAllLeaguePositionsForSummoner
+    # @param [String] summoner_id Ecrypted Summoner ID associated with the player
+    # @return [Array<DynamicModel>] list of league positions
+    def summoner_entries summoner_id:
+      result = perform_request api_url "entries/by-summoner/#{summoner_id}"
       result.map { |c| DynamicModel.new c }
     end
   end
