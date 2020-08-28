@@ -17,7 +17,6 @@ module Lol
       hash.each do |k,v|
         key = k.to_s.underscore
         set_property key, v
-        new_ostruct_member(key)
       end
     end
 
